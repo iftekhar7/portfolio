@@ -1,0 +1,58 @@
+$black: #000000;
+$white: #ffffff;
+$header-bg: #09665b; 
+$text-secondary :#34b7a7;   
+$text-color-success: #34b7a7;
+$themeColorPrimary: #0a695e;
+$lightTheme-bg:#9fa4a3;
+$textColor:rgb(197, 197, 197);
+$text-orange:#ed8936;
+$text-amber:rgb(251 191 36);
+$text-sky:rgb(2 132 199);
+$text-teal:rgb(20 184 166);
+$text-slate:rgb(148 163 184);
+$text-darkGrey:#168c14;
+$text-content-dark:rgb(113 230 212 / 36%);
+$transparent: transparent;
+$themeColorSecondary: #2d5a55;
+
+$header-color:rgb(244, 190, 20); 
+$border-color: #568e88;
+$theme-bg: #051916;
+$secondTheme:rgb(32, 33, 35);
+$cardTheme:rgb(68, 70, 84);
+$light-border-color: #EAEAEA;
+$light-text-color: #8C8C93;
+$border-color-md: #D9D9DB; 
+
+/* Prefixes_values */
+$known-prefixes: webkit, moz, ms, o;
+
+/* rounded-corners_value */
+$rounded-corners: true;
+
+/* Directions_values */
+$all-directions : top,
+right,
+bottom,
+left;
+
+/* Display_values */
+$displays: block, none, inline-block, inline-flex, inline, grid;
+
+/* Display_values */
+$cursors: pointer, default, not-allowed, none, all-scroll;
+
+/* Object-fit_values */
+$object-fit: contain, cover, fill, none, inherit, initial, scale-down, unset, revert;
+
+/* vertical-align_values */
+$vertical-align: top, bottom, middle;
+
+/*---- Weights ---*/
+$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900, normal, bold, bolder, lighter;
+
+$text-classes : 'primary', 'secondary', 'danger', 'success', 'warning', 'info', 'dark', 'gray', 'indigo', 'purple';
+
+/* ----- padding Values --------- */
+$digit_values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;

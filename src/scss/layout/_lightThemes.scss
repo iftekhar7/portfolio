@@ -1,0 +1,65 @@
+.light-mode {
+    background-color: $white;
+
+    .header {
+        background-color: $white;
+        border-bottom: 1px solid $light-border-color;
+
+        .title {
+            color: $black;
+        }
+
+        .navbar {
+            a {
+                color: $light-text-color;
+
+                &.active {
+                    font-weight: 500;
+                }
+            }
+
+            ul {
+
+                a:hover,
+                .active,
+                .active:focus,
+                li:hover>a {
+                    color: $text-color-success;
+                }
+            }
+        }
+    }
+
+    .content-body {
+        .card {
+            background-color: $white;
+
+            .header-title {
+                color: $black;
+            }
+
+            .form-group {
+                .form-label {
+                    @include weight-color(600, #111111);
+                }
+
+                .form-control {
+                    background-color: $white;
+                }
+            }
+        }
+
+        .section-title {
+            h2 {
+                color: $black;
+            }
+        }
+
+        .grid-view {
+            .custom-card-body {
+                background-color: $white;
+                border: 1px solid $light-border-color;
+            }
+        }
+    }
+}

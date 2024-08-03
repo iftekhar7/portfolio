@@ -1,0 +1,125 @@
+.image-wrapper {
+  height: 100%;
+  width: 100%;
+
+  .full-image-wrapper {
+    height: calc(100vh - 328px);
+    position: relative;
+
+    .full-image {
+      height: 100%;
+      width: 100%;
+      border-radius: 8px;
+
+      img {
+        position: relative;
+        border-radius: inherit;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border: 0; 
+        padding: 0; 
+        object-fit: cover; 
+        user-select: none; 
+        max-width: 100%;
+        display: block;
+      }
+    }
+
+    .previes-arrow {
+      @include transform-top-left-center-align; 
+      height: 35px;
+      width: 38px;
+      background-color: #05191626;
+      @include color($text-secondary);
+      left: 40px !important;
+      border-radius: 4px;
+      display: none;
+      &:hover {
+        background-color: rgb(5 25 22 / 44%);
+      }
+    }
+
+    .next-arrow {
+      @include transform-top-right-center-align; 
+      height: 35px;
+      width: 38px;
+      background-color: #05191626;
+      @include color($text-secondary);
+      border-radius: 4px;
+      display: none;
+      &:hover {
+        background-color: rgb(5 25 22 / 44%);
+      }
+    }
+
+    &:hover .previes-arrow,
+    &:hover .next-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .image-footer {
+    flex: 0 0 10%;
+    margin: 3px 0 0;
+    padding: 0;
+    overflow-y: hidden; 
+    cursor: grab;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch;
+    -ms-scroll-chaining: none;
+    overscroll-behavior-x: contain;
+    -ms-overflow-style: none;
+
+    .image-stepper-wrapper {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .image-stepper {
+        display: block;
+        height: 100%;
+        min-width: 10%;
+        width: 10%;
+        max-width: 10%;
+        overflow: hidden;
+        margin-right: 3px;
+        padding: 0; 
+        list-style: none;
+        user-select: none;
+        border-radius: 3px;
+
+        img {
+          opacity: 0.5;
+          position: relative;
+          border-radius: inherit;
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          border: 0;
+          padding: 0;
+          object-fit: cover;
+          user-select: none;
+          display: block;
+          max-width: 100%;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        &.active {
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

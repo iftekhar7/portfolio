@@ -1,0 +1,141 @@
+/*-------Animations-----*/
+@keyframes moveFromRightToShow {
+    from {
+      @include transform-translateX(-100%);
+    }
+  
+    to {
+      @include transform-translateX(0%);
+    }
+  }
+  
+  @keyframes moveFromRightToHide {
+    from {
+      @include transform-translateX(0%);
+    }
+  
+    to {
+      @include transform-translateX(100%);
+    }
+  }
+  
+  @keyframes moveFromLeftToShow {
+    from {
+      @include transform-translateX(-100%);
+    }
+  
+    to {
+      @include transform-translateX(0%);
+    }
+  }
+  
+  @keyframes moveFromLeftToHide {
+    from {
+      @include transform-translateX(0%);
+    }
+  
+    to {
+      @include transform-translateX(-100%);
+    }
+  }
+  
+  @keyframes moveFromTop {
+    from {
+      @include transform-translateY(-50%);
+    }
+  
+    to {
+      @include transform-translateY(0%);
+    }
+  }
+  
+  @keyframes moveFromCenterToTop {
+    from {
+      @include transform-translateY(0%);
+    }
+  
+    to {
+      @include transform-translateY(-50%);
+    }
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+      @include transform-scale-multiValues(1, 1);
+    }
+    50% {
+      @include transform-scale-multiValues(1.2, 1.2);
+    }
+    100% {
+      @include transform-scale-multiValues(1, 1);
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      @include transform-translateY(0px);
+    }
+  
+    50% {
+      @include transform-translateY(-15px);
+    }
+  
+    100% {
+      @include transform-translateY(0px);
+    }
+  }
+  
+  @keyframes floatfast {
+    0% {
+      @include transform-translateY(0px);
+    }
+  
+    50% {
+      @include transform-translateY(-20px);
+    }
+  
+    100% {
+      @include transform-translateY(0px);
+    }
+  }
+  
+  @keyframes rotation {
+    0% {
+      @include transform-rotate(0deg);
+    }
+  
+    100% {
+      @include transform-rotate(360deg);
+    }
+  }
+  
+  @keyframes scale50 {
+    0%,
+    100% {
+      @include transform-scale(0);
+    }
+  
+    50% {
+      @include transform-scale(1);
+    }
+  }
+  
+  .blink-animation {
+    animation: blink-animation 1s linear infinite;
+  
+    @keyframes blink-animation {
+      0% {
+        opacity: 0;
+      }
+  
+      50% {
+        opacity: 50%;
+      }
+  
+      100% {
+        opacity: 100%;
+      }
+    }
+  }
+  /*-------End -----*/
+  

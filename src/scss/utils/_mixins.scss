@@ -1,0 +1,1709 @@
+
+// /**
+// *
+// * Mixins
+// *
+// */
+
+@use "sass:math";
+
+/*---------- flex Mixin e.g use mixin "@include flex-1" ----------*/
+@mixin flex-1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0% !important;
+}
+/*---------- End" ----------*/
+
+/*---------- flex Mixin e.g use classname ".flex-10" ----------*/
+$max: 100;
+$offset: 1;
+$unit: "%";
+
+@mixin flex($className, $styleName1, $styleName2) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName1}: #{$i + $unit} !important;
+      #{$styleName2}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include flex(".flex-", "flex-basis", "max-width");
+/*---------- End ----------*/
+
+/*---------- width Mixin e.g use classname "width-5"  ----------*/
+
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin width($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include width(".width-", "width");
+/*---- End -------*/
+
+/*---------- min-width Mixin e.g use classname "min-width-5"  ----------*/
+
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin min-width($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include min-width(".min-width-", "min-width");
+/*---- End -------*/
+
+/*---------- max-width Mixin e.g use classname "max-width-5"  ----------*/
+
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin max-width($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include max-width(".max-width-", "max-width");
+/*---- End -------*/
+
+/*---------- height Mixin e.g use classname "height-10"  ----------*/
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin height($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include height(".height-", "height");
+/*---- End -------*/
+
+/*---------- min-height Mixin e.g use classname "min-height-10"  ----------*/
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin min-height($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include min-height(".min-height-", "min-height");
+/*---- End -------*/
+
+/*---------- max-height Mixin e.g use classname "max-height-10"  ----------*/
+$max: 500;
+$offset: 5;
+$unit: "px";
+
+@mixin max-height($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include max-height(".max-height-", "max-height");
+/*---- End -------*/
+
+/*---------- font-Weight Mixin e.g use classname "fw-800"  ----------*/
+@each $value in (100, 200, 300, 400, 500, 600, 700, 800, 900, normal, bold, bolder, lighter) {
+  .fw-#{$value} {
+    font-weight: $value;
+  }
+}
+
+/*---- End -------*/
+
+/*---------- text utilities Mixin e.g use classname "text-14-primary-500, text-12-secondary-600, text-14-danger-700"  ----------*/
+
+// @each $class in $text-classes {
+//   @each $size in $digit_values {
+//     @each $weight in $weights {
+//       .text-#{$size}-#{$class}-#{$weight} {
+//         font-size: #{$size}px;
+//         font-weight: #{$weight} !important;
+//         @extend .text-#{$class};
+//       }
+//     }
+//   }
+// }
+
+/*---- End -------*/
+
+/*---------- font-size Mixin e.g use classnamfonte "f-14"  ----------*/
+
+$max: 60;
+$offset: 1;
+$unit: "px";
+
+@mixin font($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include font(".f-", "font-size");
+/*---- End -------*/
+
+/*---------- Box Shadow Mixin"  ----------*/
+@mixin custom-box-shadow($box-shadow) {
+  box-shadow: $box-shadow;
+}
+
+@mixin box-shadow($level, $side) {
+  @if $side == "middle" {
+    @if $level ==1 {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+    } @else if $level ==2 {
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+      -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+      -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+    } @else if $level ==3 {
+      box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+      -webkit-box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+      -moz-box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+    }
+  }
+
+  @if $side == "bottom" {
+    @if $level ==1 {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 3px rgba(0, 0, 0, 0.08);
+    } @else if $level ==2 {
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+      -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+      -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 0 4px rgba(0, 0, 0, 0.12);
+    } @else if $level ==3 {
+      box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+      -webkit-box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+      -moz-box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 16%);
+    }
+  }
+}
+
+/*---- End -------*/
+
+/*---------- custom padding-left mixin ----------*/
+@mixin custom-padding-left($padding-left) {
+  padding-left: $padding-left;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom padding-right mixin ----------*/
+@mixin custom-padding-right($padding-right) {
+  padding-right: $padding-right;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom padding-top mixin ----------*/
+@mixin custom-padding-top($padding-top) {
+  padding-top: $padding-top;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom padding-bottom mixin ----------*/
+@mixin custom-padding-bottom($padding-bottom) {
+  padding-bottom: $padding-bottom;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom padding-y mixin ----------*/
+@mixin custom-padding-y($padding-top, $padding-bottom) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom padding-x mixin ----------*/
+@mixin custom-padding-x($padding-left, $padding-right) {
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+}
+/*----------------- End ------------------*/
+
+/*---------- Single Line Padding Mixin e.g. @include padding(0px, 20px, 0px, 20px);  ----------*/
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top !important;
+  padding-right: $right !important;
+  padding-bottom: $bottom !important;
+  padding-left: $left !important;
+}
+
+/*---- End -------*/
+
+/*---------- Padding All side Mixin e.g use classname "padding-15" ----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin padding-($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include padding-(".padding-", "padding");
+/*---- End -------*/
+
+/*----- Padding classes e.g use classname "padding-left-5, padding-right-5, padding-top-5, padding-bottom-5" -------*/
+@each $value in $all-directions {
+  @each $padding_value in $digit_values {
+    .padding-#{$value}-#{$padding_value} {
+      padding-#{$value}: #{$padding_value}px;
+    }
+  }
+}
+
+/*---- End -------*/
+
+/*-------------- Dynamic classes for vertical padding e.g. padding-y-20 -----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin padding-top-bottom($className, $styleName1, $styleName2) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName1}: #{$i + $unit};
+      #{$styleName2}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include padding-top-bottom(".padding-y-", "padding-top", "padding-bottom");
+/*----------------- End ------------------*/
+
+/*-------------- Dynamic classes for horizontal padding e.g. padding-x-20 -----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin padding-left-right($className, $styleName1, $styleName2) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName1}: #{$i + $unit};
+      #{$styleName2}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include padding-left-right(".padding-x-", "padding-left", "padding-right");
+/*----------------- End ------------------*/
+
+/*-------------- Margin & Padding Combine Mixin  e.g @include custom-space(margin, all, 10px);  -----------*/
+@mixin custom-space($type: margin, $direction: all, $amount: "") {
+  @if $type ==padding {
+    @if $direction ==all {
+      padding: $amount !important;
+    } @else if $direction ==top {
+      padding-top: $amount !important;
+    } @else if $direction ==left {
+      padding-left: $amount !important;
+    } @else if $direction ==right {
+      padding-right: $amount !important;
+    } @else {
+      padding-bottom: $amount !important;
+    }
+  } @else {
+    @if $direction ==all {
+      margin: $amount !important;
+    } @else if $direction ==top {
+      margin-top: $amount !important;
+    } @else if $direction ==left {
+      margin-left: $amount !important;
+    } @else if $direction ==right {
+      margin-right: $amount !important;
+    } @else {
+      margin-bottom: $amount !important;
+    }
+  }
+}
+
+/*----------------- End ------------------*/
+
+/*---------- custom Margin-left mixin ----------*/
+@mixin custom-margin-left($margin-left) {
+  margin-left: $margin-left;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom Margin-right mixin ----------*/
+@mixin custom-margin-right($margin-right) {
+  margin-right: $margin-right;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom Margin-top mixin ----------*/
+@mixin custom-margin-top($margin-top) {
+  margin-top: $margin-top;
+}
+/*----------------- End ------------------*/
+
+/*---------- custom Margin-bottom mixin ----------*/
+@mixin custom-margin-bottom($margin-bottom) {
+  margin-bottom: $margin-bottom;
+}
+/*----------------- End ------------------*/
+
+/*---------- Single Line Margin mixin  e.g. @include margin(0px, 20px, 0px, 20px);----------*/
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top !important;
+  margin-right: $right !important;
+  margin-bottom: $bottom !important;
+  margin-left: $left !important;
+}
+
+/*---- End -------*/
+
+/*---------- Margin All side Mixin e.g use classname "margin-15"  ----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin margin-($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include margin-(".margin-", "margin");
+/*---- End -------*/
+
+/*----- margin classes e.g use classname "margin-left-5, margin-right-5, margin-top-5, margin-bottom-5" -------*/
+@each $value in $all-directions {
+  @each $margin_value in $digit_values {
+    .margin-#{$value}-#{$margin_value} {
+      margin-#{$value}: #{$margin_value}px !important;
+    }
+  }
+}
+
+/*---- End -------*/
+
+/*-------------- Dynamic classes for vertical Margin e.g. margin-y-20 -----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin margin-top-bottom($className, $styleName1, $styleName2) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName1}: #{$i + $unit};
+      #{$styleName2}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include margin-top-bottom(".margin-y-", "margin-top", "margin-bottom");
+/*----------------- End ------------------*/
+
+/*-------------- Dynamic classes for horizontal margin e.g. margin-x-20 -----------*/
+$max: 100;
+$offset: 1;
+$unit: "px";
+
+@mixin margin-left-right($className, $styleName1, $styleName2) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName1}: #{$i + $unit};
+      #{$styleName2}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include margin-left-right(".margin-x-", "margin-left", "margin-right");
+/*----------------- End ------------------*/
+
+/*---------- display Values classes e.g use classname "display-block" ----------*/
+@each $value in $displays {
+  .display-#{$value} {
+    display: $value;
+  }
+}
+
+/*---------- End ----------*/
+
+/*---------- cursor Values classes e.g use classname "cursor-pointer" ----------*/
+@each $value in $cursors {
+  .cursor-#{$value} {
+    cursor: $value !important;
+  }
+}
+
+/*---------- End ----------*/
+
+/*---------- object-fit Values classes e.g use classname "object-fit-contain" ----------*/
+@each $value in $object-fit {
+  .object-fit-#{$value} {
+    object-fit: $value;
+  }
+}
+/*---------- End ----------*/
+
+/*---------- vertical-align Values classes e.g use classname "vertical-align-middle" ----------*/
+@each $value in $vertical-align {
+  .vertical-align-#{$value} {
+    vertical-align: $value;
+  }
+}
+/*---------- End ----------*/
+
+/*---------- line-height mixin ----------*/
+@mixin custom-line-height($line-height) {
+  line-height: $line-height !important;
+}
+
+$max: 35;
+$offset: 1;
+$unit: "px";
+
+@mixin line-height-($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include line-height-(".line-height-", "line-height");
+/*---------- End ----------*/
+
+/*---------- Single Line border mixin  e.g. @include custom-border-radius(0px, 20px, 0px, 20px);----------*/
+@mixin custom-border-radius($top-left, $top-right, $bottom-right, $bottom-left) {
+  border-top-left-radius: $top-left !important;
+  border-top-right-radius: $top-right !important;
+  border-bottom-right-radius: $bottom-right !important;
+  border-bottom-left-radius: $bottom-left !important;
+}
+
+@mixin border-radius-top-left($top-left) {
+  border-top-left-radius: $top-left !important;
+}
+
+@mixin border-radius-top-right($top-right) {
+  border-top-right-radius: $top-right !important;
+}
+
+@mixin border-radius-bottom-right($bottom-right) {
+  border-bottom-right-radius: $bottom-right !important;
+}
+
+@mixin border-radius-bottom-left($bottom-left) {
+  border-bottom-left-radius: $bottom-left !important;
+}
+
+/*---- End -------*/
+
+/*-- Border classes e.g use classname "border-2" ------*/
+// @each $border_Width in $digit_values {
+//   .border-#{$border_Width} {
+//     border: #{$border_Width}px solid $border-color !important;
+//   }
+// }
+
+/*---------- End ----------*/
+
+/*----- Border classes e.g use classname "border-left-5, border-right-5, border-top-5, border-bottom-5" -------*/
+// @each $value in $all-directions {
+//   @each $border_Width in $digit_values {
+//     .border-#{$value}-#{$border_Width} {
+//       border-#{$value}: #{$border_Width}px solid $border-color !important;
+//     }
+//   }
+// }
+
+/*---------- End ----------*/
+
+/*------- Center Position mixin  e.g @include horizontal-vertical-center('horizontal or vertical or center')  ------*/
+@mixin horizontal-vertical-center($position) {
+  position: absolute;
+
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == "center" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/*------------ End ---------------*/
+
+/*-------------- Dynamic classes for Border-Radius e.g. border-radius-5 -----------*/
+$max: 45;
+$offset: 1;
+$unit: "px";
+
+@mixin border-radius($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include border-radius(".border-radius-", "border-radius");
+/*----------------- End ------------------*/
+
+/*-------------- Dynamic classes for Border-Radius e.g. z-index-5 -----------*/
+$max: 20;
+$offset: 1;
+
+@mixin z-index($className, $styleName) {
+  $i: 0;
+
+  @while $i <=$max {
+    #{$className + $i} {
+      #{$styleName}: #{$i};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include z-index(".z-index-", "z-index");
+/*----------------- End ------------------*/
+
+/*-------------- Bg Colors For Alerts e.g. @include alerts-bg-colors(warning);  -----------*/
+@mixin alerts-bg-colors($val) {
+  @if $val ==danger {
+    background-color: $danger;
+    color: $white;
+  } @else if $val == warning {
+    background-color: $warning;
+    color: $white;
+  } @else if $val == success {
+    background-color: $success;
+    color: $white;
+  }
+}
+
+/*-------------- End -----------*/
+
+/*---------- Custom Border Mixin  e.g @include border(border, 1px solid $black-color);  ----------*/
+@mixin border($property, $value) {
+  #{$property}: $value;
+}
+
+/*---------- End ----------*/
+
+/*---------- Multi Colors Theme Mixin ----------*/
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
+
+/*---------- End ----------*/
+
+// flex
+@mixin display-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+@mixin display-flex-column {
+	display: flex;
+	flex-direction: column;
+}
+@mixin flex-center-align {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+} 
+@mixin flex-space-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+ 
+/*---------- Buttons Mixin ----------*/
+
+@mixin button {
+  @extend .border-radius-6;
+  // @extend .text-capitalize;
+  @include size-weight(14px, 600);
+  @extend .padding-x-10;
+  @include flex-center-align; 
+
+  i {
+    @extend .f-16;
+  }
+}
+
+@mixin button-primary {
+  @include button;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $themeColorPrimary);
+  @include background-and-textColor($themeColorPrimary, $white);
+
+  &:hover {
+    @include custom-box-shadow(0px 2px 5px 0px #50b05240);
+    background-color: #50b052ad;
+  }
+
+  i {
+    @extend .margin-right-10;
+  }
+}
+
+@mixin button-primary-icon {
+  @include button-primary;
+  @include min-height-width(35px, 35px);
+
+  i {
+    @include custom-margin-right(0px);
+  }
+}
+
+@mixin button-secondary {
+  @include button;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $themeColorSecondary);
+  @include background-and-textColor($themeColorSecondary, $white);
+
+  &:hover {
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+
+  i {
+    @extend .margin-right-10;
+  }
+}
+
+@mixin button-secondary-icon {
+  @include button-secondary;
+  @include min-height-width(35px, 35px);
+
+  i {
+    @include custom-margin-right(0px);
+  }
+}
+
+ 
+
+@mixin button-dark {
+  @include button;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $textColor);
+  @include background-and-textColor($textColor, $white);
+
+  &:hover {
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d40);
+  }
+
+  i {
+    @extend .margin-right-10;
+  }
+}
+
+@mixin button-dark-icon {
+  @include button-dark;
+  @include min-height-width(35px, 35px);
+
+  i {
+    @include custom-margin-right(0px);
+  }
+}
+
+@mixin button-outlined-primary {
+  @include button;
+  @include background-transparent;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $themeColorPrimary);
+  color: $themeColorPrimary;
+
+  i {
+    @extend .margin-right-10;
+  }
+
+  &:hover {
+    @include background-and-textColor($themeColorPrimary, $white);
+    @include border(border, 1px solid $themeColorPrimary);
+    @include custom-box-shadow(0px 2px 5px 0px #50b05240);
+  }
+}
+ 
+@mixin button-outlined-secondary {
+  @include button;
+  @include background-transparent;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $themeColorSecondary);
+  color: $themeColorSecondary;
+
+  i {
+    @extend .margin-right-10;
+  }
+
+  &:hover {
+    @include background-and-textColor($themeColorSecondary, $white);
+    @include border(border, 1px solid $themeColorSecondary);
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+}
+
+@mixin button-outlined-secondary-icon {
+  @include button-outlined-secondary;
+  @include min-height-width(35px, 35px);
+
+  i {
+    @include custom-margin-right(0px);
+  }
+}
+
+@mixin button-outlined-dark {
+  @include button;
+  @include background-transparent;
+  @include min-height-width(35px, 140px);
+  @include border(border, 1px solid $textColor);
+  color: $textColor;
+
+  i {
+    @extend .margin-right-10;
+  }
+
+  &:hover {
+    @include background-and-textColor($textColor, $white);
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d40);
+  }
+}
+
+@mixin button-outlined-dark-icon {
+  @include button-outlined-dark;
+  @include min-height-width(35px, 35px);
+
+  i {
+    @include custom-margin-right(0px);
+  }
+}
+
+@mixin button-circle {
+  @include button;
+  @include custom-border-radius(50%, 50%, 50%, 50%);
+  // @include background-and-textColor($white, $themeColorPrimary);
+  @include border(border, 1px solid $textColor);
+  @include min-height-width(35px, 35px);
+
+  &:hover {
+    color: $themeColorPrimary;
+    @include border(border, 1px solid $themeColorPrimary);
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+}
+
+@mixin button-outlined-circle {
+  @include button;
+  @include custom-border-radius(50%, 50%, 50%, 50%);
+  @include background-and-textColor($transparent, $textColor);
+  @include border(border, 1px solid $textColor);
+  @include min-height-width(35px, 35px);
+  @extend .padding-0;
+
+  i {
+    @include color($textColor);
+  }
+
+  &:hover {
+    color: inherit;
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d2e);
+  }
+}
+
+@mixin button-primary-circle {
+  @include button-circle;
+  @include border(border, 1px solid $themeColorPrimary);
+  @include background-and-textColor($themeColorPrimary, $white);
+
+  &:hover {
+    color: $white;
+    @include border(border, 1px solid $themeColorPrimary);
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+}
+
+@mixin button-outlined-primary-circle {
+  @include button-outlined-circle;
+  @include border(border, 1px solid $themeColorPrimary);
+  color: $themeColorPrimary;
+
+  &:hover {
+    @include background-and-textColor($themeColorPrimary, $white);
+    @include custom-box-shadow(0px 2px 5px 0px #50b05240);
+  }
+}
+
+@mixin button-secondary-circle {
+  @include button-circle;
+  @include border(border, 1px solid $themeColorSecondary);
+  @include background-and-textColor($themeColorSecondary, $white);
+
+  &:hover {
+    color: $white;
+    @include border(border, 1px solid $themeColorSecondary);
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+}
+
+@mixin button-outlined-secondary-circle {
+  @include button-outlined-circle;
+  @include border(border, 1px solid $themeColorSecondary);
+  color: $themeColorSecondary;
+
+  &:hover {
+    @include background-and-textColor($themeColorSecondary, $white);
+    @include custom-box-shadow(0px 2px 5px 0px #2e75b640);
+  }
+}
+
+@mixin button-icon {
+  @include border(border, 1px solid $textColor);
+  @include background-and-textColor($transparent, $textColor);
+  @include custom-height-width(35px, 35px);
+  @extend .padding-0;
+
+  i {
+    @include color($textColor);
+  }
+
+  &:hover {
+    @include background-and-textColor($textColor, $white);
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d2e);
+
+    i {
+      @include color($white);
+    }
+  }
+}
+
+@mixin button-circle {
+  @include border(border, 1px solid $textColor);
+  @include background-and-textColor($transparent, $textColor);
+  @include custom-height-width(35px, 35px);
+  // @extend .circle;
+
+  i {
+    @include color($textColor);
+  }
+
+  &:hover {
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d2e);
+    @include background-and-textColor($textColor, $white);
+
+    i {
+      @include color($white);
+    }
+  }
+}
+
+@mixin button-outlined {
+  @include button;
+  @include border(border, 1px solid $textColor);
+  @include background-and-textColor($transparent, $textColor);
+  @include min-height-width(35px, 140px);
+
+  i {
+    @include color($textColor);
+    @extend .margin-right-10;
+  }
+
+  &:hover {
+    color: inherit;
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d2e);
+    @include background-and-textColor($textColor, $white);
+
+    i {
+      @include color($white);
+    }
+  }
+}
+
+@mixin button-dark-circle {
+  @include button-circle;
+  @include border(border, 1px solid $textColor);
+  @include background-and-textColor($textColor, $white);
+
+  &:hover {
+    color: $white;
+    @include border(border, 1px solid $textColor);
+    @include custom-box-shadow(0px 2px 5px 0px #3c434d40);
+  }
+}
+
+@mixin button-outlined-dark-circle {
+  @include button-outlined-circle;
+  @include border(border, 1px solid $textColor);
+  color: $textColor;
+
+  &:hover {
+    @include background-and-textColor($textColor, $white);
+    @include custom-box-shadow(0px 2px 5px 0px #ffc10742);
+  }
+}
+
+@mixin button-standard {
+  @include background($transparent !important);
+ border: 0px;
+  @extend .f-14;
+  @extend .fw-600;
+  @extend .padding-y-10;
+  @extend .padding-x-7;
+  @include color($textColor);
+
+  i {
+    @extend .margin-right-10;
+  }
+
+  &:hover {
+    @include color($themeColorPrimary);
+  }
+}
+ 
+
+@mixin button-light {
+  @include button;
+  @include min-height-width(35px, 140px);
+  @include background(#fafafa);
+
+  i {
+    @extend .margin-right-10;
+  }
+}
+
+@mixin button-format($round-button, $size) {
+  width: $size;
+
+  @if $round-button {
+    height: auto;
+    border-radius: $size / 2;
+  }
+}
+
+/*---------- End ----------*/
+
+/*---------- Custom height, Width Mixin ----------*/
+@mixin custom-height-width($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin custom-height($height) {
+  height: $height;
+}
+
+@mixin custom-width($width) {
+  width: $width;
+}
+
+/*---------- End ----------*/
+
+/*---------- Custom Top, Bottom, Left, Right Mixin ----------*/
+@mixin custom-top-right-bottom-left($top, $right, $bottom, $left) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin custom-top-bottom($top, $bottom) {
+  top: $top;
+  bottom: $bottom;
+}
+
+@mixin custom-left-right($left, $right) {
+  left: $left;
+  right: $right;
+}
+
+@mixin custom-left-top($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin custom-left-bottom($left, $bottom) {
+  left: $left;
+  bottom: $bottom;
+}
+
+@mixin custom-right-bottom($right, $bottom) {
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin custom-right-top($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+@mixin custom-left($left) {
+  left: $left;
+}
+
+@mixin custom-right($right) {
+  right: $right;
+}
+
+@mixin custom-top($top) {
+  top: $top;
+}
+
+@mixin custom-bottom($bottom) {
+  bottom: $bottom;
+}
+
+/*---------- End ----------*/
+
+//  transforms
+@mixin transform-center-align {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transform-left-center-align {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin transform-top-center-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin transform-top-left-center-align {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transform-top-right-center-align {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transform-top-right {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  transform: translate(0%, 0%);
+}
+
+// positions
+@mixin position-top-bottom {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin position-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@mixin position-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin position-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin position-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@mixin position-left-right {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@mixin position-all-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin position-top-50 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin position-left-50 {
+  position: absolute;
+  left: 50%;
+}
+
+@mixin custom-position-top-left($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin custom-position-top-right($top, $right) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin custom-position-top-bottom($top, $bottom) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+}
+
+@mixin custom-position-bottom-left($bottom, $left) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin custom-position-bottom-right($bottom, $right) {
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin custom-position-left-right($left, $right) {
+  position: absolute;
+  left: $left;
+  right: $right;
+}
+
+@mixin custom-position-top-bottom-right($top, $bottom, $right) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin custom-position-allSide($top, $left, $right, $bottom) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin custom-position-top-bottom-left($top, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin custom-position-top-left-right($top, $left, $right) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+}
+
+@mixin custom-position-fixed-top-right($top, $right) {
+  position: fixed;
+  top: $top;
+  right: $right;
+}
+
+@mixin custom-position-fixed-top-left($top, $left) {
+  position: fixed;
+  top: $top;
+  left: $left;
+}
+
+@mixin custom-position-fixed-top-left-right($top, $left, $right) {
+  position: fixed;
+  top: $top;
+  left: $left;
+  right: $right;
+}
+
+@mixin custom-position-bottom-left-right($bottom, $left, $right) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}
+
+@mixin custom-position-top-center-right($right) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: $right;
+}
+
+@mixin custom-position-top-center-left($left) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: $left;
+}
+
+@mixin custom-position-left-center-top($top) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: $top;
+}
+
+@mixin custom-position-left-center-bottom($bottom) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: $bottom;
+}
+
+// Transform Rotate
+@mixin transform($value) {
+  transform: $value;
+  -webkit-transform: $value;
+}
+
+@mixin transform-rotate($angle) {
+  transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+}
+
+@mixin transform-translate($translate-value1, $translate-value2) {
+  transform: translate($translate-value1, $translate-value2);
+  -webkit-transform: translate($translate-value1, $translate-value2);
+}
+
+@mixin transform-translateX($translate-value) {
+  transform: translateX($translate-value);
+  -webkit-transform: translateX($translate-value);
+}
+
+@mixin transform-translateY($translate-value) {
+  transform: translateY($translate-value);
+  -webkit-transform: translateY($translate-value);
+}
+
+@mixin transform-scale($scale-value) {
+  transform: scale($scale-value);
+}
+
+@mixin transform-scale-multiValues($scale-value1, $scale-value2) {
+  transform: scale($scale-value1, $scale-value2);
+}
+
+// colors
+@mixin content-color {
+  color: $content-color;
+}
+
+@mixin textColor {
+  color: $textColor;
+}
+
+@mixin light-color {
+  color: $light-color;
+}
+
+@mixin theme-color {
+  color: $themeColorPrimary;
+}
+
+@mixin dark-theme-color {
+  color: $themeColorSecondary;
+}
+
+// backgrounds
+@mixin background($background-color) {
+  background-color: $background-color;
+}
+
+@mixin color($color) {
+  color: $color;
+}
+
+@mixin background-theme {
+  background-color: $themeColorPrimary;
+}
+
+@mixin background-dark-theme {
+  background-color: $themeColorSecondary;
+}
+
+@mixin background-light {
+  background-color: $light-bg;
+}
+
+@mixin background-content {
+  background-color: $content-color;
+}
+
+@mixin background-transparent {
+  background-color: transparent;
+}
+
+@mixin background-white {
+  background-color: $white;
+}
+
+@mixin background-and-textColor($bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
+}
+
+// customs
+@mixin card-box {
+  // @extend .position-relative;
+  @include background-white;
+  @extend .border-radius-8;
+  box-shadow: 0px 0px 24px rgba(122, 145, 153, 0.08) !important;
+  border-color: $border-color;
+  @include transition-3s;
+}
+
+@mixin border-radius-50 {
+  border-radius: 50%;
+}
+
+@mixin custom-transition($transition) {
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+}
+
+@mixin transition-3s {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
+}
+
+@mixin transition-5s {
+  transition: All 0.5s ease;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+}
+
+@mixin transition-1s {
+  transition: All 0.1s ease;
+  -webkit-transition: All 0.1s ease;
+  -moz-transition: All 0.1s ease;
+  -o-transition: All 0.1s ease;
+}
+
+@mixin image {
+  // @extend .w-100;
+  // @extend .h-100;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@mixin text-truncate {
+  white-space: nowrap;
+  @extend .overflow-hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin white-space($value) {
+  white-space: $value;
+}
+
+@mixin circle($height, $width) {
+  height: $height;
+  width: $width;
+  @include border-radius-50;
+}
+
+@mixin square($height, $width) {
+  height: $height;
+  width: $width;
+  @extend .border-radius-5;
+}
+
+@mixin square-border($height, $width) {
+  height: $height;
+  width: $width;
+  @extend .border-1;
+  @extend .border-radius-7;
+}
+
+@mixin size-weight-color($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin size-color($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+@mixin size-weight($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin weight-color($weight, $color) {
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin height-overflow($height) {
+  height: $height;
+  overflow-y: auto;
+}
+
+@mixin content($content, $width, $height) {
+  content: "";
+  width: $width;
+  height: $height;
+}
+
+@mixin custom-max-width($max-width) {
+  max-width: $max-width;
+}
+
+@mixin custom-min-width($min-width) {
+  min-width: $min-width;
+}
+
+@mixin custom-max-height($max-height) {
+  max-height: $max-height;
+}
+
+@mixin custom-min-height($min-height) {
+  min-height: $min-height;
+}
+
+@mixin min-height-width($min-height, $min-width) {
+  min-height: $min-height;
+  min-width: $min-width;
+}
+
+@mixin custom-z-index($z-index) {
+  z-index: $z-index;
+}
+
+@mixin custom-opacity($opacity) {
+  opacity: $opacity;
+}
+
+@mixin custom-letter-spacing($letter-spacing) {
+  letter-spacing: $letter-spacing;
+}
+
+@mixin custom-border-color($custom-border-color) {
+  border-color: $custom-border-color;
+}
+
+@mixin custom-text-indent($text-indent) {
+  text-indent: $text-indent;
+}
+
+@mixin outline($property, $value) {
+  #{$property}: $value;
+}
+
+@mixin outline-offset($value) {
+  outline-offset: $value;
+}
+
+@mixin order($value) {
+  order: $value;
+}
+
+@mixin word-wrap($value) {
+  word-wrap: $value;
+}
+
+@mixin background-image($image, $position, $size, $value) {
+  background-image: $image;
+  background-position: $position;
+  background-size: $size;
+  background-repeat: $value;
+}
+
+@mixin image-wrapper($height, $width) {
+  height: $height;
+  width: $width;
+  object-fit: contain;
+  object-position: center;
+
+  img {
+    @include custom-height-width(100%, 100%);
+    @include custom-border-radius(inherit, inherit, inherit, inherit);
+  }
+}
+
+@mixin image-wrapper-custom {
+  object-fit: contain;
+  object-position: center;
+  @include border(border, 2px solid $white);
+  @include custom-box-shadow((0px 0px 24px rgba(84, 120, 140, 0.24)));
+
+  img {
+    @include custom-height-width(100%, 100%);
+    @include custom-border-radius(inherit, inherit, inherit, inherit);
+  }
+}
+
+@mixin text-align($value) {
+  text-align: $value;
+}
+
+@mixin align-items($value) {
+  @extend .display-flex;
+  align-items: $value;
+}
+
+@mixin justify-content($value) {
+  @extend .display-flex;
+  justify-content: $value;
+}
+
+@mixin flex-align-justify($align, $justify) {
+  @extend .display-flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin background-image($image){
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-image: url($image);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}

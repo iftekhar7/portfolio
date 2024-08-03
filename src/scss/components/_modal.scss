@@ -1,0 +1,250 @@
+// modal-xl for full width and modal-md for medium width
+
+.modal-wrapper {
+  // @extend .position-fixed;
+  position: fixed;
+  @include custom-left-top(0, 0);
+  @include custom-z-index(9999);
+  @include custom-height-width(100%, 100%);
+  // @extend .overflow-x-hidden;
+  // @extend .overflow-y-auto;
+  // @extend .outline-none;
+  @include background(rgba(0, 0, 0, 0.5));
+  @extend .overflow-y-hidden;
+
+  .modal-dialog {
+    //   @extend .position-relative;
+    position: relative;
+    //   @extend .width-auto;
+    width: auto;
+    @include flex-center-align;
+    @include custom-min-height(calc(100% - 56px));
+    @include margin(28px, auto, 28px, auto);
+
+    &.modal-sm {
+      @include custom-max-width(560px !important);
+    }
+
+    &.modal-md {
+      @include custom-max-width(800px !important);
+    }
+
+    &.modal-lg {
+      @include custom-max-width(calc(100% - 500px) !important);
+    }
+
+    &.modal-xl {
+      @include custom-max-width(calc(100% - 300px) !important);
+    }
+
+    .modal-content {
+      @include card-box;
+      @include background($themeColorSecondary);
+      border: 0px;
+      // width: 100%;;
+      width: 100%;
+      @extend .border-radius-16;
+
+      .modal-header {
+        //   @extend .justify-content-between;
+
+        @extend .padding-16;
+        @include background($themeColorSecondary);
+        @include custom-border-radius(8px, 8px, 0, 0);
+        @include border(border-bottom, 1px solid $border-color);
+
+        h5 {
+          @include margin(5px, 0px, 5px, 0px);
+          @include size-weight-color(15px, 600, $textColor);
+        }
+
+        .button-close {
+          @include background-and-textColor(#e64f4f29, $text-teal);
+          @extend .f-16;
+          // @extend .border-0;
+          border: 0;
+          // @include custom-width(32px);
+          height: 32px;
+          @extend .border-radius-8;
+          @include transition-3s;
+
+          &:hover {
+            @include transition-3s;
+            @include background($theme-bg);
+          }
+        }
+      }
+
+      .modal-scrollable {
+        @include custom-max-height(calc(100vh - 225px));
+        overflow-y: auto;
+        overflow-x: hidden !important;
+        @extend .min-height-130;
+      }
+
+      .modal-header-delete {
+        background: linear-gradient(-45deg, red 31%, red) !important;
+
+        h5 {
+          @extend .fw-800;
+        }
+      }
+
+      .modal-body {
+        @extend .padding-16;
+
+        .carousel {
+          .thumbs-wrapper {
+            margin: 0px;
+          }
+        }
+
+        .slider-wrapper {
+          .slide {
+            img {
+              height: 540px;
+            }
+            &.selected {
+              min-width: 40%;
+            }
+          }
+        }
+        
+
+        tr {
+          @extend .border-radius-16;
+
+          &:last-of-type {
+            td {
+              &:first-child {
+                @include custom-border-radius(0px, 0px, 0px, 16px);
+              }
+
+              &:last-child {
+                @include custom-border-radius(0px, 0px, 16px, 0px);
+              }
+            }
+          }
+        }
+      }
+
+      .form-group input[type="color"] {
+        @include custom-height(42px);
+      }
+
+      .modal-body-sm {
+        @include height-overflow(calc(100vh - 520px));
+      }
+
+      .modal-body-xl {
+        @include height-overflow(calc(100vh - 220px) !important);
+      }
+
+       
+      .modal-footer {
+        @extend .padding-16;
+        //   @extend .justify-content-end;
+        @include border(border-top, 1px solid $border-color);
+
+        button {
+          // @extend .text-center;
+          @include padding(8px, 15px, 8px, 15px);
+          @include size-weight(14px, 400);
+          @extend .min-width-100;
+        }
+
+        .btn-dark {
+          @include background-transparent;
+          // @extend .border-0;
+          // @extend .box-shadow-0;
+        }
+
+        .btn-success {
+          background: linear-gradient(-45deg, green 31%, grey);
+          @include color($white);
+        }
+
+        button[disabled] {
+          cursor: not-allowed !important;
+        }
+
+        .btn-danger {
+          background: linear-gradient(-45deg, red 31%, red);
+          @include color($white);
+        }
+      }
+    }
+
+    .user-modal {
+      border-radius: 50% !important;
+
+      .user-modal-img {
+        @include custom-height-width(475px, 100%);
+        border-radius: 50% !important;
+
+        img {
+          @include image;
+          border-radius: 50% !important;
+        }
+      }
+    }
+  }
+
+  &.sliding-modal {
+    .modal-body {
+      height: 100%;
+
+    }
+
+    .modal-dialog {
+      @include custom-max-width(500px);
+      @include margin(30px, auto, 30px, auto);
+      animation: moveFromCenterToTop 0.6s ease both;
+
+      .modal-content {
+        @include custom-border-radius(16px, 16px, 16px, 16px);
+
+        .modal-footer {
+          @include custom-border-radius(0px, 0px, 0px, 8px);
+        }
+      }
+    }
+  }
+
+  &.sliding-modal83-transition {
+    .modal-dialog {
+      animation: moveFromTop 0.6s ease both;
+    }
+  }
+}
+
+.modal-close {
+  @include custom-position-top-right(-10px, -10px);
+  @include padding(0.3em, 0.3em, 0.3em, 0.3em);
+  @extend .cursor-pointer;
+  @include size-weight(2em, 600);
+  @include custom-height-width(1em, 1em);
+  @include custom-text-indent(10em);
+  // @extend .overflow-hidden;
+  // @extend .border-0;
+  @include background-and-textColor(#dff2fb, green);
+  @extend .border-radius-8;
+
+  &:after {
+    content: "\00D7";
+    @include custom-line-height(0.5);
+    @include custom-position-top-left(7px, 7px);
+    @include custom-text-indent(0em);
+    @extend .f-23;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .modal-xl,
+  .modal-lg,
+  .modal-md {
+    @include custom-padding-left(70px);
+    @include custom-max-width(calc(100% - 20px) !important);
+  }
+}

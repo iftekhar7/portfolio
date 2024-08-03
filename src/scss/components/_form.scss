@@ -1,0 +1,25 @@
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+
+  .form-label {
+    @include size-color(16px, $textColor);
+    margin-bottom: 7px;
+    display: block;
+  }
+
+  .form-control {
+    padding: 12px;
+    line-height: normal;
+    @include size-color(16px, $textColor);
+    background-color: #25524d;
+    border: 1px solid #568e884f;
+    border-radius: 8px;
+    height: auto;
+
+    &:focus,
+    &:hover {
+      border-color: $border-color;
+    }
+  }
+} 

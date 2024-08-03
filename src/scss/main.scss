@@ -1,0 +1,37 @@
+// utils
+@import "utils/variables";
+@import "utils/mixins";
+
+// themes 
+@import "themes/custom";
+@import "themes/flex";
+@import "themes/fonts"; 
+@import "themes/margin";
+@import "themes/padding";
+@import "themes/animations";
+@import "themes/grid";
+
+// components
+// @import "components/listView";
+@import "components/button";
+@import "components/stepper";
+@import "components/modal";
+@import "components/imageSlider";
+@import "components/toggle";
+@import "components/form";
+@import "components/carousel";
+@import "components/dropdownMenu";
+@import "components/navBar";
+@import "components/noDataFound";
+
+// base
+@import "base/content";
+
+// layout
+@import 'layout/header';
+@import 'layout/contentBody';
+@import 'layout/gridView';
+@import 'layout/lightThemes';
+    
+
+// pages 
