@@ -11,7 +11,7 @@ function Work() {
                 <div className='vertical-timeline'>
                     <div className='vertical-timeline-element'>
                         <span className='vertical-timeline-element-icon'>
-                            <img src={require('../../images/iot83.png')} />
+                            <img src={require('../../images/iot83.png')} alt='companyLogo'/>
                         </span>
                         <div className='vertical-timeline-element-content'>
                             <div>
@@ -29,7 +29,7 @@ function Work() {
                     </div>
                     <div className='vertical-timeline-element'>
                         <span className='vertical-timeline-element-icon success-light-bg'>
-                            <img src={require('../../images/iot83.png')} />
+                            <img src={require('../../images/iot83.png')} alt='companyLogo' />
                         </span>
                         <div className='vertical-timeline-element-content '>
                             <div>
@@ -45,7 +45,7 @@ function Work() {
                     </div>
                     <div className='vertical-timeline-element'>
                         <span className='vertical-timeline-element-icon'>
-                            <img src={require('../../images/iot83.png')} />
+                            <img src={require('../../images/iot83.png')} alt='companyLogo'/>
                         </span>
                         <div className='vertical-timeline-element-content '>
                             <div>

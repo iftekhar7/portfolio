@@ -1,5 +1,5 @@
 import React from 'react'
-import { carouselData, socialIconData } from './data';
+import { socialIconData } from './data';
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -7,8 +7,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
 function Home() {
-
-
 
     return (
         <div className='content-body p-0'>
@@ -30,7 +28,6 @@ function Home() {
                         <h3 className='mt-0 mb-5'>Frontend <span className='text-secondary'>Developer</span> and UX Designer</h3>
                         <p>UX Designer and Frontend Developer with 2.5+ years of experience in optimizing user experience through innovative solutions and dynamic interfaces. Highly enthusiastic and motivated individual seeking opportunities to leverage my technical knowledge. Possesses the ability to handle work pressure and excellent communication skills. Flexible to work in any environment.</p>
                         <a href="about.html" className="btn-about">About Me</a>
-
                     </div>
                 </div>
                 <div className='flex-60 responsive-item'>

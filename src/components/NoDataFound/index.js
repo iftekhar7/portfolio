@@ -13,7 +13,7 @@ function NoDataFound({ noDataFoundImage, text, height, title }) {
       <div className='no-data-found'>
         <div className="no-data-found-container">
           <div className="no-data-found-image">
-            <img  src={noDataFoundImage ? noDataFoundImage : NoDataImage} />
+            <img  src={noDataFoundImage ? noDataFoundImage : NoDataImage} alt="noDataFound"/>
           </div>
 
           {/* <p>Oops!</p> */}
