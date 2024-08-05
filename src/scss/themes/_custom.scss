@@ -428,7 +428,7 @@ section {
   @include background-image("../../images/carousel-banner.svg"); 
   height: 530px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: bottom;
   padding-right: 60px;
   }
