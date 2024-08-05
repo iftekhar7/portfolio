@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.a475ccb7.css",
+    "main.css": "/portfolio/static/css/main.e522c90b.css",
     "main.js": "/portfolio/static/js/main.5b1b88e7.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/shorting-hat-login.png": "/portfolio/static/media/shorting-hat-login.bfaec8264167430f3652.png",
@@ -72,12 +72,12 @@
     "static/media/web.png": "/portfolio/static/media/web.ef81e909871f5de8c585.png",
     "static/media/No Data2.svg": "/portfolio/static/media/No Data2.359332603c59ee97ededed9036d87e7e.svg",
     "index.html": "/portfolio/index.html",
-    "main.a475ccb7.css.map": "/portfolio/static/css/main.a475ccb7.css.map",
+    "main.e522c90b.css.map": "/portfolio/static/css/main.e522c90b.css.map",
     "main.5b1b88e7.js.map": "/portfolio/static/js/main.5b1b88e7.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a475ccb7.css",
+    "static/css/main.e522c90b.css",
     "static/js/main.5b1b88e7.js"
   ]
 }
